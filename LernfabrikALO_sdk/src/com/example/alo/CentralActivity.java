@@ -13,6 +13,7 @@ public class CentralActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_central);
+		
 		//register activity in a list for finishing all activities
 		RegistryActivity.register(this);
 		
