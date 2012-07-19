@@ -17,7 +17,6 @@ public class CentralActivity extends Activity {
 		RegistryActivity.register(this);
 		
 		ImageView image = (ImageView) findViewById(R.id.imageView1);
-		
 		image.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
