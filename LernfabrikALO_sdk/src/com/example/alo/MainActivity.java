@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
 	
 	
 	@Override
+	//Called then the activity is first created
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
