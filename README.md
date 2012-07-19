@@ -1,4 +1,0 @@
-LernfabrikALO
-=============
-
-LAngeNächteProjekt
