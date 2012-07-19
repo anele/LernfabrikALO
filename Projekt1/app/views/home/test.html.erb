@@ -1,0 +1,45 @@
+<form action="/start" class="start" id="" method="post">
+<%= stylesheet_link_tag "home" %>
+<div style="position:absolute; padding-top:50px; 
+      width:308px; border:0px; font-size: 20px;
+      font-weight: bold; color: red; padding-left:250px;padding-top:100px;">lerne mit uns</div>
+
+<div class="sonne">
+<%= link_to image_tag("/images/kinder.png", 
+					  :size=>"200x200",  
+					  :border=>'none') 
+					   %>
+</div>
+<div class="lernen">
+<%= link_to image_tag("/images/buchstaben.png", 
+					  :size=>"200x200", 					  
+					  :alt=>'buchstaben',
+					  :border=>'none'), 
+					  :action => 'index', 
+					  :controller => 'photos', 
+					  :class => 'dock-item' %>
+
+Buchstaben lernen
+</div> 
+
+<div class="lernen">
+<%= link_to image_tag("/images/zahlen.png", 
+					  :size=>"200x200", 
+					  :alt=>'buchstaben',
+					  :border=>'none'), 
+					  :action => 'list', 
+					  :controller => 'game', 
+					  :class => 'dock-item' %>
+
+Zahlen lernen
+
+<br></br>
+<br></br>
+<br></br>
+ <div style="margin-left:20;margin-top:200">
+	<input name="commit" type="submit" value="Home"/>
+  	<input name="commit" type="submit" value="schliessen" />
+</div>  
+</div>
+
+</form>
