@@ -178,7 +178,7 @@ public class GameActivity extends Activity {
 			TableRow.LayoutParams blp = new TableRow.LayoutParams();
 			blp.leftMargin = 20;
 			blp.rightMargin = 20;
-			blp.topMargin = 15;
+			blp.topMargin = 10;
 			button.setLayoutParams(blp);
 
 			imageList.remove(idx);
