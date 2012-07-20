@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E1E1E1" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/padding_medium"
+        tools:context=".GameActivity" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#E1E1E1"
+        android:gravity="center" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="42dp" >
+    </FrameLayout>
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/TableLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="370dp"
+        android:layout_alignTop="@+id/frameLayout1" >
+
+        <TableRow
+            android:id="@+id/TableRow01"
+            android:layout_width="10px"
+            android:layout_height="10px"
+            android:layout_marginTop="40px"
+            android:gravity="center" >
+
+            <LinearLayout
+                android:id="@+id/LinearLayout01"
+                android:layout_width="10px"
+                android:layout_height="10px"
+                android:layout_gravity="center"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/ImageView01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" >
+                </ImageView>
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:text="Menü"
+        android:width="130dp" />
+
+</RelativeLayout>
