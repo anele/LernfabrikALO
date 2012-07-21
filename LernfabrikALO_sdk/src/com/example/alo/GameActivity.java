@@ -41,15 +41,15 @@ import android.widget.TableRow;
 
 public class GameActivity extends Activity {
 
-	private String[] imageArray = new String[26];
-	private String[] signArray = new String[26];
+	private String[] imageArray;
+	private String[] signArray;
 	private Map<Drawable, String> mapLetter;
 	private Map<Drawable, String> mapImage;
 	private ButtonListener buttonListener;
 	private List<Drawable> imageList;
 	private List<Drawable> signList;
 	private Drawable firstImage;
-	private static Object lock;
+	private static Object lock = new Object();
 	private String firstCard;
 	private String secondCard;
 	private TableLayout mainTable;
@@ -57,9 +57,8 @@ public class GameActivity extends Activity {
 	private Context context;
 	private static int numRight = 0;
 	private static int numFalse = 0;
-	private static int ROW_COUNT = -1;
-	private static int COL_COUNT = -1;
-	private String imageBaseDirectory;
+	private static int rowCount = -1;
+	private static int colCount = -1;
 	private String jsonFile;
 	private int b_id = 0;
 	private int z_id = 0;
@@ -75,28 +74,28 @@ public class GameActivity extends Activity {
 		mainTable = (TableLayout) findViewById(R.id.TableLayout01);
 		RegistryActivity.register(this);
 		
+		imageArray = new String[26];
+		signArray = new String[26];
 		mapLetter = new HashMap<Drawable, String>();
 		mapImage = new HashMap<Drawable, String>();
 		imageList = new ArrayList<Drawable>(var);
 		signList = new ArrayList<Drawable>(var);
 		buttonListener = new ButtonListener();
-		lock = new Object();
 
-		if (main.getGame() == main.gameSign) {
+		String imageBaseDirectory;
+		if (main.getGame() == 0 ) {
 			imageBaseDirectory = "http://10.0.2.2:3000/images/alphabet/";
 			jsonFile = "http://10.0.2.2:3000/photos.json";
 			var = 26;
-			ROW_COUNT = 7;
-			COL_COUNT = 4;
+			rowCount = 7;
+			colCount = 4;
 		} else {
 			var = 10;
 			imageBaseDirectory = "http://10.0.2.2:3000/images/number/";
 			jsonFile = "http://10.0.2.2:3000/photo1s.json";
-			ROW_COUNT = 5;
-			COL_COUNT = 2;
+			rowCount = 5;
+			colCount = 2;
 		}
-		
-		
 
 		Button buttonMenu = (Button) findViewById(R.id.button1);
 		buttonMenu.setOnClickListener(new OnClickListener() {
@@ -137,34 +136,34 @@ public class GameActivity extends Activity {
 		}
 	}
 
-	// private void newGame(int c, int r) {
+	
 	private void newGame() {
-		// ROW_COUNT = r;
-		// COL_COUNT = c;
 		TableRow tr = ((TableRow) findViewById(R.id.TableRow01));
 		tr.removeAllViews();
-		setNumRight(0);
-		setNumFalse(0);
+		numRight = 0;
+		numFalse = 0;
 
 		mainTable = new TableLayout(context);
 		tr.addView(mainTable);
 
-		for (int y = 0; y < ROW_COUNT; y++) {
+		for (int y = 0; y < rowCount; y++) {
 			mainTable.addView(createRow(y));
 		}
 		firstCard = null;
 	}
 
+	
 	private TableRow createRow(int y) {
 		TableRow row = new TableRow(context);
 		row.setHorizontalGravity(Gravity.CENTER);
 
-		for (int x = 0; x < COL_COUNT; x++) {
+		for (int x = 0; x < colCount; x++) {
 			row.addView(createImageButton(x, y));
 		}
 		return row;
 	}
 
+	
 	private View createImageButton(int x, int y) {
 		Button button = new Button(context);
 		button.setId(100 * x + y);
@@ -189,6 +188,7 @@ public class GameActivity extends Activity {
 		return button;
 	}
 
+	
 	private void getImages() {
 		// TODO Auto-generated method stub
 		JSONArray jsonArray;
@@ -214,6 +214,7 @@ public class GameActivity extends Activity {
 
 	}
 
+	
 	private void loadImages(String img_url, String img_name) throws IOException {
 		URL myFileUrl = new URL(img_url);
 		HttpURLConnection conn = (HttpURLConnection) myFileUrl.openConnection();
@@ -225,6 +226,7 @@ public class GameActivity extends Activity {
 		mapImage.put(d, img_name);
 	}
 
+	
 	private void showLetter() {
 		Resources res = getResources();
 		imageLetter = (ImageView) findViewById(res.getIdentifier("imageView1",
@@ -233,6 +235,7 @@ public class GameActivity extends Activity {
 		firstImage = signList.get(0);
 	}
 
+	
 	private void loadImagesLetter(String img_url, String img_name)
 			throws IOException {
 		URL myFileUrl = new URL(img_url);
@@ -246,6 +249,7 @@ public class GameActivity extends Activity {
 		mapLetter.put(d1, img_name);
 	}
 
+	
 	private JSONArray readJsonData() throws Exception {
 		JSONArray jsonArray = null;
 		String daten = "";
@@ -276,16 +280,8 @@ public class GameActivity extends Activity {
 		return true;
 	}
 
-	public static void setNumRight(int numRight) {
-		GameActivity.numRight = numRight;
-	}
-
 	public static int getNumRight() {
 		return numRight;
-	}
-
-	public static void setNumFalse(int numFalse) {
-		GameActivity.numFalse = numFalse;
 	}
 
 	public static int getNumFalse() {

@@ -12,7 +12,7 @@
         android:layout_centerVertical="true"
         android:padding="@dimen/padding_medium"
         tools:context=".CentralActivity" />
-
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -42,6 +42,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="made by Lena &amp; Aynur" />
-    
-    </RelativeLayout>
-        
+
+</RelativeLayout>
