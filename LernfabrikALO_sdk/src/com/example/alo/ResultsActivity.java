@@ -9,9 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ResultsActivity extends Activity {
-	private OnClickListener buttonListener2;
-	private Button buttonMenu;
-	private Button buttonEnd;
 
 	@SuppressWarnings("static-access")
 	public void onCreate(Bundle savedInstanceState) {
@@ -27,11 +24,10 @@ public class ResultsActivity extends Activity {
 		right.setText("X  " + game.getNumRight());
 		wrong.setText("X  " + game.getNumFalse());
 
-		buttonMenu = (Button) findViewById(R.id.button1);
-		buttonEnd = (Button) findViewById(R.id.button2);
+		final Button buttonMenu = (Button) findViewById(R.id.button1);
+		Button buttonEnd = (Button) findViewById(R.id.button2);
 
-		buttonListener2 = new OnClickListener() {
-
+		OnClickListener buttonListener2 = new OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if (v == buttonMenu) {
@@ -43,9 +39,8 @@ public class ResultsActivity extends Activity {
 				}
 			}
 		};
+
 		buttonMenu.setOnClickListener(buttonListener2);
 		buttonEnd.setOnClickListener(buttonListener2);
-
 	}
-
 }
