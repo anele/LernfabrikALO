@@ -41,6 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="made by Lena &amp; Aynur" />
+        android:text="made by Lena &amp; Aynur &amp; Alex" />
 
 </RelativeLayout>
