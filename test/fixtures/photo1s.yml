@@ -1,5 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+
 one:
   image_name: MyString
   image_description: MyString
@@ -9,3 +10,23 @@ two:
   image_name: MyString
   image_description: MyString
   image_type: 1
+  
+one1:
+  image_name: eins_1.png
+  image_description: eins
+  image_type: 1
+
+two1:
+  image_name: zwei_1.png
+  image_description: zwei
+  image_type: 1
+
+one2:
+  image_name: eins_2.png
+  image_description: eins
+  image_type: 2
+
+two2:
+  image_name: zwei_2.png
+  image_description: zwei
+  image_type: 2
