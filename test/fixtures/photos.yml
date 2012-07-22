@@ -9,3 +9,23 @@ two:
   image_name: MyString
   image_description: MyString
   image_type: 1
+  
+pic_T1:
+  image_name: T_1.png
+  image_description: T
+  image_type: 1
+
+pic_R1:
+  image_name: R_1.png
+  image_description: R 
+  image_type: 1
+
+pic_T2:
+  image_name: T_2.png
+  image_description: T
+  image_type: 2
+
+pic_R2:
+  image_name: R_2.png
+  image_description: R
+  image_type: 2
